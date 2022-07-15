@@ -49,24 +49,23 @@ const propiedades = [
     }
   ];
 
-  
 let botonBuscar = document.querySelector('#botonBuscar');
 botonBuscar.addEventListener("click", function(botonBuscar){
 
-let cantidadDeCuartos = parseInt(document.querySelector('#inputCantidadDeCuartos').value);
-let metrosDesde = parseInt(document.querySelector('#inputMetrosDesde').value);
-let metrosHasta = parseInt(document.querySelector('#inputMetrosHasta').value);
+let cantidadDeCuartos = document.querySelector('#inputCantidadDeCuartos').value;
+let metrosDesde = document.querySelector('#inputMetrosDesde').value;
+let metrosHasta = document.querySelector('#inputMetrosHasta').value;
 
 console.log(cantidadDeCuartos);
 console.log(metrosDesde);
 console.log(metrosHasta);
 
-if (cantidadDeCuartos ==="" || metrosDesde ==="" || metrosHasta ==="") {
+if (cantidadDeCuartos ==="" || metrosDesde ==="" || metrosHasta ===""){
   alert('Faltan campos por llenar')
 } 
 });
 
-  const listaPropiedadesTotal = document.querySelector('.propiedad');
+  const listaPropiedadesTotal = document.querySelector('.propiedades');
   let contenidoPropiedadesTotal = '';
   for (let propiedad of propiedades) {
    
@@ -88,3 +87,68 @@ if (cantidadDeCuartos ==="" || metrosDesde ==="" || metrosHasta ==="") {
 
   listaPropiedadesTotal.innerHTML = contenidoPropiedadesTotal;
 
+  /*
+  const listaPropiedades = document.querySelector('.propiedad');
+  let contenidoPropiedades = '';
+  for (let propiedad of propiedades) {
+  
+    
+    // if para filtrar cuartos
+    if(propiedad[cuartos] > cantidadDeCuartos && propiedad[cuartos] < cantidadDeCuartos){
+  
+        contenidoPropiedades += `
+    
+    <div class='propiedad'> 
+      <img src='${propiedad.src}' class='img'></img>
+      <section>  
+       <h5>${propiedad.nombre}</h5>
+      <div>
+        <p> Cuartos: ${propiedad.cuartos}</p>
+        <p> Metros: ${propiedad.metros}</p>
+      </div>
+      <p>${propiedad.descripcion}</p>
+      <button>Ver más</button>
+    </section>
+    </div>
+  
+     // if para filtrar metros cuadrados
+    `} if (propiedad.metros > metrosDesde && propiedad.metros < metrosHasta){
+  
+      contenidoPropiedades += `
+  
+  <div class='propiedad'> 
+    <img src='${propiedad.src}' class='img'></img>
+    <section>  
+     <h5>${propiedad.nombre}</h5>
+    <div>
+      <p> Cuartos: ${propiedad.cuartos}</p>
+      <p> Metros: ${propiedad.metros}</p>
+    </div>
+    <p>${propiedad.descripcion}</p>
+    <button>Ver más</button>
+  </section>
+  </div>
+  `} else{
+    contenidoPropiedades += `
+    
+    <div class='propiedad'> 
+      <img src='${propiedad.src}' class='img'></img>
+      <section>  
+       <h5>${propiedad.nombre}</h5>
+      <div>
+        <p> Cuartos: ${propiedad.cuartos}</p>
+        <p> Metros: ${propiedad.metros}</p>
+      </div>
+      <p>${propiedad.descripcion}</p>
+      <button>Ver más</button>
+    </section>
+    </div>`
+  
+  }
+  
+    }
+   
+  
+  listaPropiedades.innerHTML = contenidoPropiedades;
+  
+*/
