@@ -80,6 +80,7 @@ let btnBuscar = document.querySelector('#botonBuscar');
 let listaPropiedades = document.querySelector('.propiedades');
 let contadorPropiedades = document.querySelector('#contador-propiedades')
 
+
 // se carga el dom con el arreglo
 listaPropiedades.innerHTML = html;
 
@@ -99,27 +100,17 @@ if (inputCuartos ==="" || inputMetrosDesde ==="" || inputMetrosHasta ===""){
 
 //aplicación de filtros 
 
-   let nuevaListaCuartos = propiedades.filter(propiedad => propiedad.cuartos <= inputCuartos);
-   let nuevaListaMetrosDesde = propiedades.filter(propiedad => propiedad.metros <= inputMetrosDesde);
-   let nuevaListaMetrosHasta = propiedades.filter(propiedad => propiedad.metros >= inputMetrosHasta);
+let nuevaListaDePropiedades = propiedades.filter(function(propiedad){
+  return propiedad.cuartos <= inputCuartos && propiedad.metros >= inputMetrosDesde && propiedad.metros <= inputMetrosHasta
+  
 
-      console.log(nuevaListaCuartos);
-      console.log(nuevaListaMetrosDesde);
-      console.log(nuevaListaMetrosHasta);
 
-//creación de un nuevo arreglo sumando los 3 anteriores
 
-    let nuevaListaDePropiedades = nuevaListaCuartos.concat(nuevaListaMetrosDesde, nuevaListaMetrosHasta)
-      console.log(nuevaListaDePropiedades);
+});
+console.log(nuevaListaDePropiedades)
 
-      contadorPropiedades.innerHTML = nuevaListaDePropiedades.length;
-
-      let Html = nuevaListaDePropiedades; 
+contadorPropiedades.innerHTML = nuevaListaDePropiedades.length;
 
 });
 
-
-
-
-
-
+ 
