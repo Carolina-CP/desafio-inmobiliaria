@@ -71,7 +71,6 @@ for (let propiedad of propiedades) {
   `}
 
   
-
  // se declaran las variables
 let inputCuartos = document.querySelector('#inputCuartos');
 let inputMetrosDesde = document.querySelector('#inputMetrosDesde');
@@ -79,6 +78,7 @@ let inputMetrosHasta = document.querySelector('#inputMetrosHasta');
 
 let btnBuscar = document.querySelector('#botonBuscar');
 let listaPropiedades = document.querySelector('.propiedades');
+let contadorPropiedades = document.querySelector('#contador-propiedades')
 
 // se carga el dom con el arreglo
 listaPropiedades.innerHTML = html;
@@ -97,16 +97,24 @@ if (inputCuartos ==="" || inputMetrosDesde ==="" || inputMetrosHasta ===""){
   alert('Faltan campos por llenar')
 } 
 
+//aplicación de filtros 
+
    let nuevaListaCuartos = propiedades.filter(propiedad => propiedad.cuartos <= inputCuartos);
    let nuevaListaMetrosDesde = propiedades.filter(propiedad => propiedad.metros <= inputMetrosDesde);
    let nuevaListaMetrosHasta = propiedades.filter(propiedad => propiedad.metros >= inputMetrosHasta);
 
-console.log(nuevaListaCuartos);
-console.log(nuevaListaMetrosDesde);
-console.log(nuevaListaMetrosHasta);
+      console.log(nuevaListaCuartos);
+      console.log(nuevaListaMetrosDesde);
+      console.log(nuevaListaMetrosHasta);
 
+//creación de un nuevo arreglo sumando los 3 anteriores
 
+    let nuevaListaDePropiedades = nuevaListaCuartos.concat(nuevaListaMetrosDesde, nuevaListaMetrosHasta)
+      console.log(nuevaListaDePropiedades);
 
+      contadorPropiedades.innerHTML = nuevaListaDePropiedades.length;
+
+      let Html = nuevaListaDePropiedades; 
 
 });
 
