@@ -102,14 +102,37 @@ if (inputCuartos ==="" || inputMetrosDesde ==="" || inputMetrosHasta ===""){
 
 let nuevaListaDePropiedades = propiedades.filter(function(propiedad){
   return propiedad.cuartos <= inputCuartos && propiedad.metros >= inputMetrosDesde && propiedad.metros <= inputMetrosHasta
-  
-
-
 
 });
+
+// visualización de filtro en la consola
 console.log(nuevaListaDePropiedades)
 
+// contador de propiedades
 contadorPropiedades.innerHTML = nuevaListaDePropiedades.length;
+
+
+/* (estuve mucho tiempo tratando de que se visualizara, no sé que hago mal,
+pero no quiero seguir atrasada con la tarea)*/
+// se declara el for of filtrado con el nuevo html
+let html = ''; 
+for (let propiedad of propiedades) {
+ 
+  html += `
+  
+  <div class='propiedad'> 
+    <img src='${propiedad.src}' class='img'></img>
+    <section>  
+     <h5>${propiedad.nombre}</h5>
+    <div>
+      <p> Cuartos: ${propiedad.cuartos}</p>
+      <p> Metros: ${propiedad.metros}</p>
+    </div>
+    <p>${propiedad.descripcion}</p>
+    <button>Ver más</button>
+  </section>
+  </div>
+  `}
 
 });
 
